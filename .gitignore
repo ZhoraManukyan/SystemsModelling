@@ -1,16 +1,13 @@
-# Compiled class file
+# ===== Java =====
 *.class
-
-# Log file
 *.log
-
-# BlueJ files
 *.ctxt
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# JVM crash logs
+hs_err_pid*
+replay_pid*
 
-# Package Files #
+# Packages
 *.jar
 *.war
 *.nar
@@ -19,9 +16,35 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
-
-# Kotlin Gradle plugin data, see https://kotlinlang.org/docs/whatsnew20.html#new-directory-for-kotlin-data-in-gradle-projects
+# ===== Kotlin =====
 .kotlin/
+
+# ===== Gradle / Android =====
+.gradle
+**/build/
+!src/**/build/
+local.properties
+
+# ===== IDE =====
+.idea
+*.iml
+
+# ===== macOS =====
+.DS_Store
+
+# ===== Android =====
+captures
+.externalNativeBuild
+.cxx
+
+# ===== iOS (если используешь KMP) =====
+xcuserdata
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# ===== Node (если есть web часть) =====
+node_modules/
