@@ -1,10 +1,10 @@
 package com.example.systemsmodeling.ui.navigation
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ShowChart
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.DeviceHub
 import androidx.compose.material.icons.filled.Functions
-import androidx.compose.material.icons.filled.ShowChart
 import androidx.compose.ui.graphics.vector.ImageVector
 
 enum class AppDestination(
@@ -25,7 +25,7 @@ enum class AppDestination(
     Lab4(
         title = "Лаб. 4 — непрерывные распределения",
         shortLabel = "Лаб 4",
-        icon = Icons.Filled.ShowChart
+        icon = Icons.AutoMirrored.Filled.ShowChart
     ),
     Lab5(
         title = "Лаб. 5 — дискретные распределения",
