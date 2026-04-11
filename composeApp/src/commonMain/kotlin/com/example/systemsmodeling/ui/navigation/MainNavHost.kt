@@ -16,6 +16,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.example.systemsmodeling.ui.Lab1Screen
 import com.example.systemsmodeling.ui.Lab2Screen
+import com.example.systemsmodeling.ui.Lab3Screen
 import com.example.systemsmodeling.ui.Lab4Screen
 import com.example.systemsmodeling.ui.Lab5Screen
 import com.example.systemsmodeling.ui.components.AppTopBar
@@ -35,7 +36,7 @@ fun MainNavHost() {
                 AppDestination.entries.forEach { dest ->
                     NavigationBarItem(
                         selected = destination == dest,
-                        onClick = { destinationKey = dest.name },
+                        onClick = { dest.name },
                         icon = {
                             Icon(
                                 imageVector = dest.icon,
@@ -52,6 +53,7 @@ fun MainNavHost() {
             when (destination) {
                 AppDestination.Lab1 -> Lab1Screen()
                 AppDestination.Lab2 -> Lab2Screen()
+                AppDestination.Lab3 -> Lab3Screen()
                 AppDestination.Lab4 -> Lab4Screen()
                 AppDestination.Lab5 -> Lab5Screen()
             }

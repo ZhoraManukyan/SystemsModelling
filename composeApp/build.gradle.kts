@@ -26,6 +26,7 @@ kotlin {
     
     sourceSets {
         androidMain.dependencies {
+            implementation(libs.exp4j)
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
         }

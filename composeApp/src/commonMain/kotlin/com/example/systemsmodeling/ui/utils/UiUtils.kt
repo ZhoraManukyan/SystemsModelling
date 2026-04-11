@@ -35,12 +35,15 @@ fun NumberFieldDouble(
 ) {
     OutlinedTextField(
         value = value,
-        onValueChange = {
-            onChange(it.filter { ch -> ch.isDigit() || ch == '.' })
+        onValueChange = { input ->
+            val filtered = input.filterIndexed { index, ch ->
+                ch.isDigit() || ch == '.' || (ch == '-' && index == 0)
+            }
+            onChange(filtered)
         },
         label = { Text(label) },
         singleLine = true,
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         modifier = Modifier.padding(vertical = 4.dp)
     )
 }

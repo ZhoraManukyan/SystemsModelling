@@ -51,10 +51,10 @@ fun Lab5Screen() {
 
         item {
             SectionCard(title = "Параметры ЛКГ") {
-                NumberField("n₀", lcgSeed) { lcgSeed = it }
-                NumberField("λ (LCG)", lcgLambda) { lcgLambda = it }
-                NumberField("μ", lcgMu) { lcgMu = it }
-                NumberField("m", lcgM) { lcgM = it }
+                NumberFieldDouble("n₀", lcgSeed) { lcgSeed = it }
+                NumberFieldDouble("λ (LCG)", lcgLambda) { lcgLambda = it }
+                NumberFieldDouble("μ", lcgMu) { lcgMu = it }
+                NumberFieldDouble("m", lcgM) { lcgM = it }
             }
         }
 
