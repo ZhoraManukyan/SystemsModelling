@@ -1,72 +1,68 @@
-# 📐 Systems Modelling — Kotlin Multiplatform App
+# Systems Modelling — Kotlin Multiplatform App
 
-A cross-platform mobile application built with **Kotlin Multiplatform (KMP)** and **Compose Multiplatform**, targeting both Android and iOS from a single shared codebase.
+An Android + iOS app for **generating random numbers and sampling probability distributions**,
+built from a single Kotlin codebase with **Kotlin Multiplatform** and **Compose Multiplatform**.
 
-The app is an educational tool for visualizing and simulating system models — exploring how systems behave over time through interactive graphs and simulations.
+It started as a set of university labs for the *Systems Modelling* course. Each lab is a screen
+where you enter parameters, run the generator and see every intermediate step, not just the answer.
 
----
+<p float="left">
+  <img src="docs/lab2.png" width="250"/>
+  <img src="docs/lab5.png" width="250"/>
+  <img src="docs/lab5.png" width="250"/>
+</p>
 
-## 📱 Platforms
+## What's inside
 
-| Platform | Status |
-|---|---|
-| Android | ✅ Supported |
-| iOS | ✅ Supported |
+| Lab | Topic | Methods |
+|---|---|---|
+| 1 | Random values from bit sequences | Segment division method, combination (octal) method |
+| 2 | Pseudo-random number generation | Linear congruential generator: multiplicative `nᵢ₊₁ = (λ·nᵢ) mod m` and mixed `nᵢ₊₁ = (λ·nᵢ + μ) mod m` |
+| 4 | Continuous distributions | Normal (sum of 12 uniforms), log-normal, exponential, product method (Erlang) |
+| 5 | Discrete distributions | Poisson, binomial |
 
----
+Sample statistics (mean, mean square) are shown so you can compare the generated values
+with the theoretical ones.
 
-## 🎯 Features
-
-- Interactive system model visualization
-- Real-time simulation rendering
-- Shared business logic across Android and iOS via KMP
-- UI built with Compose Multiplatform
-
----
-
-## 🛠 Tech Stack
-
-| Tool | Purpose |
-|---|---|
-| Kotlin | Core language |
-| Kotlin Multiplatform (KMP) | Shared logic for Android & iOS |
-| Compose Multiplatform | Shared UI layer |
-| Gradle (KTS) | Build system |
-
----
-
-## 📁 Project Structure
+## Architecture
 
 ```
-SystemsModelling/
-├── composeApp/
-│   └── src/
-│       ├── commonMain/     # Shared code (logic + UI)
-│       ├── androidMain/    # Android-specific code
-│       └── iosMain/        # iOS-specific code
-├── iosApp/                 # iOS entry point (Xcode)
-├── build.gradle.kts
-└── settings.gradle.kts
+composeApp/src/
+├── commonMain/          # shared code for Android and iOS
+│   ├── lab1/ lab2/ lab4/ lab5/   # generators and use cases (pure Kotlin)
+│   ├── statistics/               # sample statistics
+│   └── ui/                       # Compose Multiplatform screens, navigation, theme
+├── androidMain/         # Android entry point
+└── iosMain/             # iOS entry point
+iosApp/                  # Xcode project
 ```
 
----
+The math lives in plain Kotlin classes with no UI dependencies, so it is shared as-is and easy to test.
 
-## 🚀 How to Run
+## Tech stack
 
-### Android
+Kotlin · Kotlin Multiplatform · Compose Multiplatform · Material 3 · Gradle (KTS)
+
+## Tests
+
+The generators are covered by unit tests in `commonTest` (known sequences, value ranges, edge cases):
+
+```bash
+./gradlew :composeApp:testDebugUnitTest
+```
+
+## Run it
+
+**Android:** open the project in Android Studio and run `composeApp`, or
+
 ```bash
 ./gradlew :composeApp:assembleDebug
 ```
-Or run directly from Android Studio.
 
-### iOS
-Open the `/iosApp` folder in **Xcode** and run on a simulator or device.
+**iOS:** open `iosApp/iosApp.xcodeproj` in Xcode and run.
 
----
+## Roadmap
 
-## 👤 Author
-
-**Zhora Manukyan**
-- GitHub: [@ZhoraManukyan](https://github.com/ZhoraManukyan)
-- LinkedIn: [linkedin.com/in/zhora-manukyan](https://linkedin.com/in/zhora-manukyan)
-- Email: zhora.a.manukyan@gmail.com
+- [x] Unit tests for every generator (`composeApp/src/commonTest`)
+- [ ] Histogram of generated samples vs. the theoretical density
+- [ ] APK in GitHub Releases
