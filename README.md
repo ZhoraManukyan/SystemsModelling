@@ -6,11 +6,9 @@ built from a single Kotlin codebase with **Kotlin Multiplatform** and **Compose 
 It started as a set of university labs for the *Systems Modelling* course. Each lab is a screen
 where you enter parameters, run the generator and see every intermediate step, not just the answer.
 
-<p float="left">
-  <img src="docs/lab2.png" width="250"/>
-  <img src="docs/lab5.png" width="250"/>
-  <img src="docs/lab5.png" width="250"/>
-</p>
+| Lab 2 — LCG | Lab 4 — continuous | Lab 5 — discrete |
+|---|---|---|
+| <img src="docs/lab2.png" width="250"/> | <img src="docs/lab4.png" width="250"/> | <img src="docs/lab5.png" width="250"/> |
 
 ## What's inside
 
