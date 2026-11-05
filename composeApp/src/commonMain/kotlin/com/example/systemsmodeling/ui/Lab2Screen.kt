@@ -37,7 +37,7 @@ fun Lab2Screen() {
                 "Линейный конгруэнтный генератор: " +
                         "\n\tМультипликативный -> nᵢ₊₁ = (λ·nᵢ) mod m, " +
                         "\n\tСмешанный -> nᵢ₊₁ = (λ·nᵢ + μ) mod m, " +
-                        "\n\trᵢ = nᵢ/m.",
+                        "\n\trᵢ = nᵢ/(m − 1).",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
