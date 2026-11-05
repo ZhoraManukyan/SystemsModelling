@@ -2,6 +2,7 @@ package com.example.systemsmodeling.ui.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ShowChart
+import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.DeviceHub
 import androidx.compose.material.icons.filled.Functions
@@ -22,10 +23,15 @@ enum class AppDestination(
         shortLabel = "Лаб 2",
         icon = Icons.Filled.Calculate
     ),
+    Lab3(
+        title = "Лаб. 3 — интеграл Монте-Карло",
+        shortLabel = "Лаб 3",
+        icon = Icons.AutoMirrored.Filled.ShowChart
+    ),
     Lab4(
         title = "Лаб. 4 — непрерывные распределения",
         shortLabel = "Лаб 4",
-        icon = Icons.AutoMirrored.Filled.ShowChart
+        icon = Icons.Filled.Apps
     ),
     Lab5(
         title = "Лаб. 5 — дискретные распределения",

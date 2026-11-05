@@ -59,10 +59,10 @@ fun Lab4Screen() {
     LabScreenLazyColumn {
         item {
             SectionCard(title = "Генератор ЛКГ (база)") {
-                NumberField("n₀", seed) { seed = it }
-                NumberField("λ (LCG)", lambdaLcg) { lambdaLcg = it }
-                NumberField("μ (LCG)", muLcg) { muLcg = it }
-                NumberField("m", mLcg) { mLcg = it }
+                NumberFieldDouble("n₀", seed) { seed = it }
+                NumberFieldDouble("λ (LCG)", lambdaLcg) { lambdaLcg = it }
+                NumberFieldDouble("μ (LCG)", muLcg) { muLcg = it }
+                NumberFieldDouble("m", mLcg) { mLcg = it }
             }
         }
 

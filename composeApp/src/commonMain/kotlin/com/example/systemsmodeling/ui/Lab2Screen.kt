@@ -15,7 +15,7 @@ import com.example.systemsmodeling.lab2.Lab2UseCase
 import com.example.systemsmodeling.lab2.models.Lab2Result
 import com.example.systemsmodeling.ui.components.LabScreenLazyColumn
 import com.example.systemsmodeling.ui.components.SectionCard
-import com.example.systemsmodeling.ui.utils.NumberField
+import com.example.systemsmodeling.ui.utils.NumberFieldDouble
 import com.example.systemsmodeling.utils.round3Double
 
 @Composable
@@ -45,11 +45,11 @@ fun Lab2Screen() {
 
         item {
             SectionCard(title = "Параметры ЛКГ") {
-                NumberField("n₀ (начальное)", seed) { seed = it }
-                NumberField("λ", lambda) { lambda = it }
-                NumberField("μ", mu) { mu = it }
-                NumberField("m", m) { m = it }
-                NumberField("Количество шагов", count) { count = it }
+                NumberFieldDouble("n₀ (начальное)", seed) { seed = it }
+                NumberFieldDouble("λ", lambda) { lambda = it }
+                NumberFieldDouble("μ", mu) { mu = it }
+                NumberFieldDouble("m", m) { m = it }
+                NumberFieldDouble("Количество шагов", count) { count = it }
                 Button(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
@@ -91,6 +91,26 @@ fun Lab2Screen() {
         }
 
         result?.let { res ->
+            item {
+                SectionCard(title = "Сводка (X = rᵢ)") {
+                    Text("M(X) = ${res.mean.round3Double()}", style = MaterialTheme.typography.bodyLarge)
+                    Text(
+                        if (res.isMeanValid) "M(X) в диапазоне [0.4; 0.6]"
+                        else "M(X) вне диапазона",
+                        color = if (res.isMeanValid) MaterialTheme.colorScheme.primary
+                        else MaterialTheme.colorScheme.error
+                    )
+                    Text("M(X²) = ${res.meanSquare.round3Double()}")
+                    Text("(M(X))² = ${res.meanSquared.round3Double()}")
+                    Text(
+                        if (res.variance != null)
+                            "D(X) = ${res.variance.round3Double()}"
+                        else
+                            "D(X) не считается"
+                    )
+                }
+            }
+
             item {
                 Text("Последовательность (n, r)", style = MaterialTheme.typography.titleMedium)
             }
